@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cp -r ../files .
+docker build -t inlet/aem-publisher .
+rm -rf files

@@ -11,10 +11,10 @@ services:
      - publisher
     ports:
      - "4502:4502"
-  dispatcher:
-    image: aem-dispatcher
-    links:
-      - publisher
-    ports:
-      - "80:80"
-      - "443:443"
+  # dispatcher:
+  #   image: aem-dispatcher
+  #   links:
+  #     - publisher
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
