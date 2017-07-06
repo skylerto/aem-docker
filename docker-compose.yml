@@ -2,13 +2,11 @@ version: "2"
 
 services:
   publisher:
-    image: aem-publisher
+    image: inlet/aem-publisher
     ports:
      - "4503:4503"
   author:
-    image: aem-author
-    links:
-     - publisher
+    image: inlet/aem-author
     ports:
      - "4502:4502"
   # dispatcher:
