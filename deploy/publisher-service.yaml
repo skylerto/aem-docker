@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    role: publisher
+  name: publisher
+spec:
+  ports:
+  - name: "4503"
+    port: 4503
+    targetPort: 4503
+  selector:
+    role: publisher
+  type: NodePort

@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   creationTimestamp: null
-  name: author
+  name: publisher
 spec:
   replicas: 1
   strategy: {}
@@ -10,14 +10,14 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: author
+        role: publisher
     spec:
       containers:
-      - image: 192.168.0.152:5000/aem-author:latest
-        imagePullPolicy: Always
-        name: author
+      - image: inlet/aem-publisher:latest
+        imagePullPolicy: IfNotPresent
+        name: publisher
         ports:
-        - containerPort: 4502
+        - containerPort: 4503
         resources: {}
       restartPolicy: Always
 status: {}

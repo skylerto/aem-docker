@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    io.kompose.service: author
+    role: author
   name: author
 spec:
   ports:
@@ -10,5 +10,5 @@ spec:
     port: 4502
     targetPort: 4502
   selector:
-    io.kompose.service: author
+    role: author
   type: NodePort

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# cp -r ../files .
+docker build -t skylerto/aem-base .
+# rm -rf files

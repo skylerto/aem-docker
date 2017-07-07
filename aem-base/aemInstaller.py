@@ -30,7 +30,7 @@ port = optDic.setdefault('port','4503')
 # success message has been recieved.
 #
 # Starts AEM installer
-installProcess = subprocess.Popen(['java', '-jar', fileName, '-listener-port','50007','-r',runmode,'nosample','-p',port])
+installProcess = subprocess.Popen(['java', '-Xms2048m', '-Xmx2048m', '-XX:MaxPermSize=256m', '-jar', fileName, '-listener-port','50007','-r',runmode,'nosample','-p',port])
 
 # Starting listener
 import socket
@@ -71,7 +71,8 @@ print "Stopping instance"
 #
 if successfulStart == True:
   parentAEMprocess= psutil.Process(installProcess.pid)
-  for childProcess in parentAEMprocess.get_children():
+  # for childProcess in parentAEMprocess.get_children():
+  for childProcess in parentAEMprocess.children(recursive=True):
     os.kill(childProcess.pid,signal.SIGINT)
 
   os.kill(parentAEMprocess.pid, signal.SIGINT)
