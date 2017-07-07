@@ -19,9 +19,7 @@ WORKDIR /aem/crx-quickstart/bin
 #Replaces the port within the quickstart file with the standard publisher port
 RUN sed -i "s|4502|4503|g" quickstart
 
-ENV AUTHOR_BASE "http://172.17.0.2:4502"
-ENV POD_IP "localhost"
-
+COPY replication.py /aem/replication.py
 COPY startup.sh /aem/startup.sh
 
 EXPOSE 4503 8000
