@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cp -r ../files .
-docker build -t inlet/aem-publisher .
+docker build -t skylerto/aem-publisher .
 rm -rf files

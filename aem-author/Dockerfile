@@ -1,4 +1,4 @@
-FROM inlet/aem-base
+FROM skylerto/aem-base
 MAINTAINER Adfinis SyGroup/Namics
 
 #Copies required build media

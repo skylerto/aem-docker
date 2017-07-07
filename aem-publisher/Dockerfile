@@ -1,4 +1,4 @@
-FROM inlet/aem-base
+FROM skylerto/aem-base
 MAINTAINER Adfinis SyGroup/Namics
 
 # Extracts AEM
@@ -19,6 +19,10 @@ WORKDIR /aem/crx-quickstart/bin
 #Replaces the port within the quickstart file with the standard publisher port
 RUN sed -i "s|4502|4503|g" quickstart
 
+ENV AUTHOR_BASE "http://172.17.0.2:4502"
+ENV POD_IP "localhost"
+
+COPY startup.sh /aem/startup.sh
 
 EXPOSE 4503 8000
-ENTRYPOINT ["/aem/crx-quickstart/bin/quickstart"]
+ENTRYPOINT ["sh", "/aem/startup.sh"]
